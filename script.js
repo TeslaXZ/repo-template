@@ -27,9 +27,9 @@ document.querySelector('form').addEventListener('submit', function(event) {
   
     // Crea la cadena de texto a copiar
     var textoACopiar = 'Número: '  + numeroRecuperar + '\n' +
-                       '¿Has enviado SMS este mes❓ ' + '\n' + (sms === 'Si' ? '👉 b) Sí' : '👉 a) No ❌') + '\n' +
-                       '🔒 ¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses❓ 👉 '+ '\n' + combo + '\n' +
-                       '🔒 ¿Número al que más llamas con frecuencia❓ 👉 '+ '\n' + numeroFrecuente;
+                       '¿Has enviado SMS este mes❓ ' + '\n' + (sms === 'Si' ? ' b) Sí' : ' a) No ') + '\n' +
+                       '🔒 ¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses❓ '+ '\n' + combo + '\n' +
+                       '🔒 ¿Número al que más llamas con frecuencia❓ '+ '\n' + numeroFrecuente;
   
     // Crea un elemento textarea temporal, establece su valor en el texto a copiar y añádelo al documento
     var textareaTemporal = document.createElement('textarea');
@@ -42,5 +42,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
   
     // Elimina el textarea temporal
     document.body.removeChild(textareaTemporal);
+    // Muestra un mensaje de éxito
+  alert('Copiado con éxito!');
   });
   
