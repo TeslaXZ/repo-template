@@ -1,60 +1,62 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF = 8">
-        <meta name="viewport" content="width=device-width">
-        <title>Plantilla de reposiciones</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-    
-    <h2>Preguntale al cliente las siguientes preguntas y luego selecciona</h2>
-    
-    <form>
-        <div class="numeroRecuperar">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de reposiciones</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Pregúntale al cliente las siguientes preguntas y luego selecciona</h2>
+
+    <form id="myForm">
+        <div class="input-field">
             <label for="numeroRecuperar">Número a recuperar:</label><br>
             <input type="text" id="numeroRecuperar" name="numeroRecuperar" placeholder="Ingresa el número a recuperar"><br><br>
         </div>
-        <div class="sms">
-        <label for="sms"> ¿Has enviado SMS este mes❓</label><br>
-      <input type="radio" id="no" name="pregunta1" value="No">
-      <label for="no">a) No </label>
-      <input type="radio" id="si" name="pregunta1" value="Si">
-      <label for="si"> b) Si</label><br><br>
+        <div class="input-field">
+            <label for="sms">¿Has enviado SMS este mes❓</label><br>
+            <input type="radio" id="no" name="pregunta1" value="No">
+            <label for="no">a) No </label>
+            <input type="radio" id="si" name="pregunta1" value="Si">
+            <label for="si"> b) Sí</label><br><br>
         </div>
-      <div class="combo">
-        <label for="combo">¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses❓</label><br>
-        <select id="pregunta2" name="pregunta2">
-          <option value="a)Combo $4">👉a)Combo $4</option>
-          <option value="b)Combo $7">👉b)Combo $7</option>
-          <option value="c)Combo $8">👉c)Combo $8</option>
-          <option value="d)Combo $10">👉d)Combo $10</option>
-          <option value="e)Combo $20">👉e)Combo $20</option>
-          <option value="f)Combo $25">👉f)Combo $25</option>
-          <option value="g)Ninguno">👉g)Ninguno</option>
-        </select><br><br>  
-      </div>
-      <div class="numeroFrecuente">
-        <label for="numeroFrecuente">¿Número al que más llamas con frecuencia❓</label><br>
-      <input type="text" id="pregunta3" name="pregunta3" placeholder="Ingresa el numero si tiene"><br>
-      
-    
-  
-      </div>
-      
-      <input type="submit" value="Copiar">
+        <div class="input-field">
+            <label for="combo">¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses❓</label><br>
+            <select id="pregunta2" name="pregunta2">
+                <option value="a)Combo $4">👉a)Combo $4</option>
+                <option value="b)Combo $7">👉b)Combo $7</option>
+                <option value="c)Combo $8">👉c)Combo $8</option>
+                <option value="d)Combo $10">👉d)Combo $10</option>
+                <option value="e)Combo $20">👉e)Combo $20</option>
+                <option value="f)Combo $25">👉f)Combo $25</option>
+                <option value="g)Ninguno">👉g)Ninguno</option>
+            </select><br><br>
+        </div>
+        <div class="input-field">
+            <label for="numeroFrecuente">¿Número al que más llamas con frecuencia❓</label><br>
+            <input type="text" id="pregunta3" name="pregunta3" placeholder="Ingresa el número si lo tienes"><br>
+        </div>
+        <div class="btn-submit">
+          <button type="submit" class="btn">Copiar</button>
+        </div>
+        
     </form>
-   
+</div>
+
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
     <p>Copiado exitoso!</p>
-    <button onclick="window.location.href = 'https://secure.livechatinc.com/licence/6049241/v2/open_chat.cgi';">Ir al LiveChat</button>
+    <button class="btn" onclick="window.location.href = 'https://secure.livechatinc.com/licence/6049241/v2/open_chat.cgi';">Ir a LiveChat</button>
   </div>
 </div>
 
-    </body>
-    <script src="script.js"></script>
-    
-    
+<footer>Made by Brian Diaz (MasterChip)</footer>
+
+<script src="script.js"></script>
+
+</body>
 </html>
