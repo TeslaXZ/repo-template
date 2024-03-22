@@ -30,8 +30,8 @@ document.querySelector('form').addEventListener('submit', function(event) {
 
   // Crea la cadena de texto a copiar
   var textoACopiar = 'Número: '  + numeroRecuperar + '\n' +
-                     '¿Has enviado SMS este mes❓ ' + '\n' + smsValue + '\n' +
-                     '🔒 ¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses❓ '+ '\n' + combo + '\n' +
+                     '¿Has enviado SMS este mes❓ ' + '\n' + smsValue + '\n' +'\n' +
+                     '🔒 ¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses❓ '+ '\n' + combo + '\n' +'\n' +
                      '🔒 ¿Número al que más llamas con frecuencia❓ '+ '\n' + numeroFrecuente;
 
   // Crea un elemento textarea temporal, establece su valor en el texto a copiar y añádelo al documento
