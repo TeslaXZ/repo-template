@@ -9,7 +9,7 @@
 <body>
 
 <div class="container">
-    <h2>Pregúntale al cliente las siguientes preguntas y luego selecciona</h2>
+    <h2>Pregúntale al cliente lo siguente:</h2>
 
     <form id="myForm">
         <div class="input-field">
@@ -17,11 +17,8 @@
             <input type="text" id="numeroRecuperar" name="numeroRecuperar" placeholder="Ingresa el número a recuperar"><br><br>
         </div>
         <div class="input-field">
-            <label for="sms">¿Has enviado SMS este mes❓</label><br>
-            <input type="radio" id="no" name="pregunta1" value="No">
-            <label for="no">a) No </label>
-            <input type="radio" id="si" name="pregunta1" value="Si">
-            <label for="si"> b) Sí</label><br><br>
+            <label for="numeroFrecuente">¿Cuál es el correo que está asociado a tu cuenta de APP?</label><br>
+            <input type="text" id="pregunta1" name="pregunta1" placeholder="Dejar en blanco si no tiene"><br>
         </div>
         <div class="input-field">
             <label for="combo">¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses❓</label><br>
@@ -37,7 +34,7 @@
         </div>
         <div class="input-field">
             <label for="numeroFrecuente">¿Número al que más llamas con frecuencia❓</label><br>
-            <input type="text" id="pregunta3" name="pregunta3" placeholder="Ingresa el número si lo tienes"><br>
+            <input type="text" id="pregunta3" name="pregunta3" placeholder="Dejar en blanco si no tiene"><br>
         </div>
         <div class="btn-submit">
           <button type="submit" class="btn">Copiar</button>
@@ -49,14 +46,14 @@
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Copiado exitoso!</p>
+    <p>Copiado exitoso</p>
     <button class="btn" onclick="window.location.href = 'https://secure.livechatinc.com/licence/6049241/v2/open_chat.cgi';">Ir a LiveChat</button>
   </div>
 </div>
 
 <footer>Made by Brian Diaz (MasterChip)</footer>
-
+</body>
 <script src="script.js"></script>
 
-</body>
+
 </html>

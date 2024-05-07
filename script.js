@@ -1,59 +1,72 @@
-document.querySelector('form').addEventListener('submit', function(event) {
-  // Evita que el formulario se envíe (comportamiento predeterminado)
-  event.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
 
-  // Recoge los valores seleccionados
-  var numeroRecuperar = document.querySelector('input[name="numeroRecuperar"]').value;
-  var sms = document.querySelector('input[name="pregunta1"]:checked');
-  var combo = document.querySelector('select[name="pregunta2"]').value;
-  var numeroFrecuente = document.querySelector('input[name="pregunta3"]').value;
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const numeroRecuperar = document.getElementById('numeroRecuperar').value.trim();
+        let pregunta1 = document.getElementById('pregunta1').value.trim();
+        let pregunta2 = document.getElementById('pregunta2').value.trim();
+        let pregunta3 = document.getElementById('pregunta3').value.trim();
+
+        const modal = document.getElementById('myModal');
+        const modalText = document.querySelector('#myModal p');
+        const modalButton = document.querySelector('#myModal .btn');
+        if (numeroRecuperar === '') {
+            modalText.textContent = 'Debes ingresar el número a recuperar.';
+            modalButton.style.display = 'none';
+            modal.style.display = 'flex';
+            return; 
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (pregunta1 !== '' && !emailRegex.test(pregunta1)) {
+            
+            modalText.textContent = 'Debes ingresar un correo electrónico válido';
+            modalButton.style.display = 'none';
+            modal.style.display = 'flex';
+            return; 
+        }
+
+    
+        if (pregunta1 === '') {
+            pregunta1 = 'No tiene cuenta registrada';
+        }
+
+        if (pregunta3 === '') {
+            pregunta3 = 'No he llamado';
+        }
+
+       
+        const textToCopy = `
+Número a recuperar: ${numeroRecuperar}
+
+¿Cuál es el correo que está asociado a tu cuenta de APP?
   
-  // Comprueba si se ingresó un número a recuperar
-  if (numeroRecuperar === "") {
-      alert('Tienes que ingresar un número a recuperar.');
-      return;
-  }
+${pregunta1}
 
-  // Comprueba si se seleccionó una opción para SMS
-  if (sms === null) {
-      alert('Tienes que seleccionar una de las dos opciones para SMS.');
-      return;
-  }
+¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses?
+  
+${pregunta2}
 
-  // Comprueba si se ha seleccionado "Si" o "No" para SMS
-  var smsValue = sms.value === 'Si' ? ' b) Si' : ' a) No';
+¿Número al que más llamas con frecuencia?
+   
+${pregunta3}
+        `;
 
-  // Si no se ingresa un número frecuente, establece un valor predeterminado
-  if (numeroFrecuente === '') {
-      numeroFrecuente = 'No he llamado';
-  }
+        // Copia el texto al portapapeles
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            // Muestra el modal indicando que la copia fue exitosa
+            modalText.textContent = 'Copiado exitoso!';
+            // Mostrar el botón en el modal
+            modalButton.style.display = 'block';
+            modal.style.display = 'flex';
+            
+        });
+    });
 
-  // Crea la cadena de texto a copiar
-  var textoACopiar = 'Número: '  + numeroRecuperar + '\n' +
-                     '¿Has enviado SMS este mes❓ ' + '\n' + smsValue + '\n' +'\n' +
-                     '🔒 ¿Cuál fue el Combo que compraste con más frecuencia en los últimos 3 meses❓ '+ '\n' + combo + '\n' +'\n' +
-                     '🔒 ¿Número al que más llamas con frecuencia❓ '+ '\n' + numeroFrecuente;
-
-  // Crea un elemento textarea temporal, establece su valor en el texto a copiar y añádelo al documento
-  var textareaTemporal = document.createElement('textarea');
-  textareaTemporal.value = textoACopiar;
-  document.body.appendChild(textareaTemporal);
-
-  // Selecciona el texto del textarea temporal y copia el texto al portapapeles
-  textareaTemporal.select();
-  document.execCommand('copy');
-
-  // Elimina el textarea temporal
-  document.body.removeChild(textareaTemporal);
-
-  // Mostrar el modal
-  var modal = document.getElementById("myModal");
-  modal.style.display = "flex";
-  modal.style.alignItems="center";
-
-  // Cerrar el modal cuando se haga clic en la "x"
-  var span = document.getElementsByClassName("close")[0];
-  span.onclick = function() {
-      modal.style.display = "none";
-  }
+    // Manejador del botón de cerrar del modal
+    document.querySelector('.close').addEventListener('click', function() {
+        // Oculta el modal
+        document.getElementById("myModal").style.display = 'none';
+    });
 });
