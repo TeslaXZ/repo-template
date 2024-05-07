@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const modal = document.getElementById('myModal');
         const modalText = document.querySelector('#myModal p');
         const modalButton = document.querySelector('#myModal .btn');
+        const modalContent = document.querySelector('.modal-content')
         if (numeroRecuperar === '') {
             modalText.textContent = 'Debes ingresar el número a recuperar.';
             modalButton.style.display = 'none';
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modalText.textContent = 'Debes ingresar un correo electrónico válido';
             modalButton.style.display = 'none';
             modal.style.display = 'flex';
+            modalContent.style.height = "10%"
             return; 
         }
 
@@ -60,6 +62,7 @@ ${pregunta3}
             // Mostrar el botón en el modal
             modalButton.style.display = 'block';
             modal.style.display = 'flex';
+            modalContent.style.height = "20%"
             
         });
     });
