@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 Requerimiento: ${requerimiento}
         
-Número a recuperar: ${numeroRecuperar}
+Número: ${numeroRecuperar}
 
 ¿Cuál es el correo que está asociado a tu cuenta de APP?
   
