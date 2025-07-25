@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('myForm').addEventListener('submit', function(event) {
         event.preventDefault();
-
+        const requerimiento = document.getElementById('requerimiento').value.trim();
         const numeroRecuperar = document.getElementById('numeroRecuperar').value.trim();
         let pregunta1 = document.getElementById('pregunta1').value.trim();
         let pregunta2 = document.getElementById('pregunta2').value.trim();
@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const modalText = document.querySelector('#myModal p');
         const modalButton = document.querySelector('#myModal .btn');
         const modalContent = document.querySelector('.modal-content')
+
+        if (requerimiento === '') {
+            modalText.textContent = 'Debes escribir el requerimiento del cliente(Ejemplo: Reposicion)';
+            modalButton.style.display = 'none';
+            modal.style.display = 'flex';
+            return; 
+        }
+
         if (numeroRecuperar === '') {
             modalText.textContent = 'Debes ingresar el número a recuperar.';
             modalButton.style.display = 'none';
@@ -40,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
        
         const textToCopy = `
+
+Requerimiento: ${requerimiento}
+        
 Número a recuperar: ${numeroRecuperar}
 
 ¿Cuál es el correo que está asociado a tu cuenta de APP?
